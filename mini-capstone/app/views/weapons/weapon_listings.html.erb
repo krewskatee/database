@@ -1,0 +1,13 @@
+<h1>Weapon Listings</h1>
+
+
+
+<% @weapons.each do |weapon| %>
+  <div>
+    <%= image_tag(weapon.image_url) %>
+    <h2>Name:</h2> <%= weapon.name %>
+    <h3>Price:</h3> <%= weapon.price %>
+    <h3>Description:</h3> <%= weapon.description %>
+    <br /><br /></br />
+  </div>
+<% end %>
