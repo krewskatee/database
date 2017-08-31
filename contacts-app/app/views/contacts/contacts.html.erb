@@ -1,8 +1,19 @@
-<h1>Contacts</h1>
-<% @contacts.each do |contact| %>
-  <h3>First Name:</h3> <%= contact.first_name %>
-  <h3>Last Name:</h3> <%= contact.last_name %>
-  <h3>E-mail:</h3> <%= contact.email %>
-  <h3>Phone Number:</h3> <%= contact.phone_number %>
-  <br /><br />
+
+
+<%= form_tag "/send_contacts", method: :post do %>
+  <div>
+    <label for="First Name">First name:</label> <input type="text" name="first_name" id="First Name">
+  </div>
+  <div>
+  <label for="Last Name">Last name:</label> <input type="text" name="last_name" id="Last Name">
+  </div>
+  <div>
+    <label for="E-mail">E-mail:</label> <input type="text" name="email" id="E-mail">
+  </div>
+  <div>
+    <label for="Phone Number">Phone number:</label> <input type="text" name="phone_number" id="Phone Number">
+  </div>
+  <div>
+      <input type="submit" value="Send Message">
+  </div>
 <% end %>
