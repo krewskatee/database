@@ -1,8 +1,14 @@
 class WeaponsController < ApplicationController
 
-  def weapons_action
+  def index
+  
     @weapons = Weapon.all
-    render 'weapon_listings.html.erb'
+  end
+
+  def show
+
+    @weapon = Weapon.find(params[:id])
+
   end
 
 end

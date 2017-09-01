@@ -1,6 +1,25 @@
 class RecipesController < ApplicationController
-  def one_recipe_action
+
+  def index
     @recipes = Recipe.all
-    render 'all_recipe_page.html.erb'
   end
+
+  def new
+
+  end
+
+  def create
+    recipe = Recipe.new(
+                        title: params[:title],
+                        chef: params[:chef],
+                        ingredients: params[:ingredients],
+                        directions: params[:directions]
+                      )
+    recipe.save
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
 end

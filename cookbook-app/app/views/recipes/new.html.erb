@@ -1,0 +1,15 @@
+<%= form_tag "/recipes/create", method: :post do %>
+  <div>
+    <label for="Title">Title:</label> <input type="text" name="title" id="Title">
+  </div>
+  <div>
+    <label for="Chef">Chef:</label> <input type="text" name="chef" id="Chef">
+  </div>
+  <div>
+    <label for="ingredients">Ingredients:</label> <input type="ingredients" name="form_message" id="Ingredients">
+  </div>
+  <div>
+    <label for="Directions">Directions:</label> <input type="text" name="directions" id="Directions">
+  </div>
+  <button type="submit" class="btn btn-primary">Create Recipe</button>
+<% end %>

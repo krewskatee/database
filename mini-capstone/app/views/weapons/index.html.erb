@@ -1,11 +1,11 @@
-<h1>Weapon Listings</h1>
+<h2>Weapon Listings</h2>
 
 
 
 <% @weapons.each do |weapon| %>
   <div>
     <%= image_tag(weapon.image_url) %>
-    <h2>Name:</h2> <%= weapon.name %>
+    <h2>Name:</h2> <h2><%= link_to weapon.name, "weapons/#{weapon.id}" %></h2>
     <h3>Price:</h3> <%= weapon.price %>
     <h3>Description:</h3> <%= weapon.description %>
     <br /><br /></br />
