@@ -1,0 +1,18 @@
+<h1 align="center">Edit a Weapon Listing</h1>
+<div class="container">
+  <%= form_tag "/weapons/#{@weapon.id}", method: :patch do %>
+    <div>
+      <label for="Name">Name:</label> <input type="text" name="name" class="form-control" value="<%= @weapon.name %>" id="Name">
+    </div>
+    <div>
+      <label for="Price">Price:</label> <input type="text" name="price" class="form-control" value="<%= @weapon.price %>" id="Price">
+    </div>
+    <div>
+      <label for="Image_url">Image Url:</label> <input type="image_url" class="form-control" name="image_url" value="<%= @weapon.image_url %>" id="Image_url">
+    </div>
+    <div>
+      <label for="Description">Description:</label> <input type="text" class="form-control" name="description" value="<%= @weapon.description %>" id="Description">
+    </div>
+    <button type="submit" class="btn btn-success">Update Weapon</button>
+<% end %>
+</div>

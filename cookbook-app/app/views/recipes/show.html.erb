@@ -3,3 +3,6 @@
 <h3>Chef:</h3> <%= @recipe.chef%>
 <h3>Ingredients:</h3> <%= @recipe.ingredients %>
 <h3>Directions:</h3> <%= @recipe.directions %>
+<br /><br />
+<%= link_to "Update Recipe", "/recipes/#{ @recipe.id }/edit", class: "btn btn-primary" %>
+<%= link_to "Delete Recipe", "/recipes/#{ @recipe.id }", method: :delete, class: "btn btn-danger" %>

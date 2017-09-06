@@ -3,3 +3,6 @@
 <h2>Name:</h2> <%= @weapon.name %>
 <h3>Price:</h3> <%= @weapon.price %>
 <h3>Description:</h3> <%= @weapon.description %>
+<br /><br />
+<%= link_to "Update Listing", "/weapons/#{ @weapon.id }/edit", class: "btn btn-primary" %>
+<%= link_to "Delete Listing", "/weapons/#{ @weapon.id }", method: :delete, class: "btn btn-danger" %>

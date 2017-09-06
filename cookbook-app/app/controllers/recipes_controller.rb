@@ -9,17 +9,35 @@ class RecipesController < ApplicationController
   end
 
   def create
-    recipe = Recipe.new(
+    recipe = Recipe.create(
                         title: params[:title],
                         chef: params[:chef],
                         ingredients: params[:ingredients],
                         directions: params[:directions]
                       )
-    recipe.save
   end
 
   def show
     @recipe = Recipe.find(params[:id])
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    recipe = Recipe.find(params[:id])
+    recipe.update_attributes(
+                            title: params[:title],
+                            chef: params[:chef],
+                            ingredients: params[:ingredients],
+                            directions: params[:directions]
+                            )
+  end
+
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
   end
 
 end
