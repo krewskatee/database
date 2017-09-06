@@ -18,6 +18,8 @@ def create
                       image_url: params[:image_url],
                       description: params[:description]
                     )
+  flash[:success] = "Listing Successfully Created"
+  redirect_to "/weapons/#{ weapon.id }"
 end
 
 def show
@@ -36,11 +38,15 @@ def update
                                   image_url: params[:image_url],
                                   description: params[:description]
                                   )
+  flash[:success] = "Listing Successfully Updated"
+  redirect_to "/weapons/#{ weapon.id }"
 end
 
 def destroy
   weapon = Weapon.find(params[:id])
   weapon.destroy
+  flash[:danger] = "Listing Successfully Deleted"
+  redirect_to("/")
 end
 
 end
