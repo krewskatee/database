@@ -11,7 +11,7 @@
       <label for="Image_url">Image Url:</label> <input type="image_url" class="form-control" name="image_url" value="<%= @weapon.image_url %>" id="Image_url">
     </div>
     <div>
-      <label for="Description">Description:</label> <input type="text" class="form-control" name="description" value="<%= @weapon.description %>" id="Description">
+      <label for="Description">Description:</label> <textarea id="desc" type="text" class="form-control" name="description" value="<%= @weapon.description %>" id="Description"></textarea>
     </div>
     <br />
     <button type="submit" class="btn btn-success">Update Weapon</button>

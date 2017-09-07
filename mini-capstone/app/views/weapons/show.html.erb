@@ -1,8 +1,12 @@
 <h2>Weapon Info</h2>
 <img src="<%= @weapon.image_url %>">
 <h2>Name:</h2> <%= @weapon.name %>
-<h3>Price:</h3> <%= @weapon.price %>
 <h3>Description:</h3> <%= @weapon.description %>
+<h2>Price:</h2> <h3><%= @weapon.price %></h3>
+<h2>Tax Amount:</h2> <h3><%= @weapon.tax %></h3>
+<h2>Total Price:</h2> <h3><%= @weapon.total %></h3>
+<h2>Sale Status:</h2>
+<h3 style="color:<%= @weapon.sale_message_styling  %>"; ><%= @weapon.sale_message %></h3>
 <br /><br />
 <%= link_to "Update Listing", "/weapons/#{ @weapon.id }/edit", class: "btn btn-primary" %>
 <%= link_to "Delete Listing", "/weapons/#{ @weapon.id }", method: :delete, class: "btn btn-danger" %>

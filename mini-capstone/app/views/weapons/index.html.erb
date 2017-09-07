@@ -3,11 +3,13 @@
 
 
 <% @weapons.each do |weapon| %>
-  <div>
-    <img src="<%= weapon.image_url %>">
-    <h2>Name:</h2> <h2><%= link_to weapon.name, "weapons/#{weapon.id}" %></h2>
-    <h3>Price:</h3> <%= weapon.price %>
-    <h3>Description:</h3> <%= weapon.description %>
-    <br /><br /></br />
+  <div class="col-md-4 col-sm-6 product-index-single">
+    <div class="well">
+      <img src="<%= weapon.image_url %>">
+      <h2>Name:</h2> <h2><%= link_to weapon.name, "weapons/#{weapon.id}" %></h2>
+      <h3>Price:</h3> <%= weapon.price %>
+      <h3>Description:</h3> <%= weapon.description %>
+      <br /><br /></br />
+    </div>
   </div>
 <% end %>

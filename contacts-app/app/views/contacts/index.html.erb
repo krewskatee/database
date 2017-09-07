@@ -1,0 +1,8 @@
+<h2>Contacts</h2>
+
+<% @contacts.each do |contact| %>
+      <h2>Name:</h2> <h2><%= link_to contact.full_name, "contacts/#{contact.id}" %></h2>
+      <h3>Email:</h3> <%= contact.email %>
+      <h3>Phone Number:</h3> <%= contact.add_japan_prefix %>
+      <br /><br /></br />
+<% end %>
