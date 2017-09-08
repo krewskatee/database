@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
   contact = Contact.find(params[:id])
   contact.update_attributes(
                             first_name: params[:first_name],
-                            middle_name: params[:first_name],
+                            middle_name: params[:middle_name],
                             last_name: params[:last_name],
                             email: params[:email],
                             phone_number: params[:phone_number],
@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
   def create
     contact = Contact.create(
                             first_name: params[:first_name],
-                            middle_name: params[:first_name],
+                            middle_name: params[:middle_name],
                             last_name: params[:last_name],
                             email: params[:email],
                             phone_number: params[:phone_number],

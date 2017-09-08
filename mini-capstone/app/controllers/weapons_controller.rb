@@ -12,11 +12,13 @@ class WeaponsController < ApplicationController
   end
 
   def create
+
     weapon = Weapon.create(
                         name: params[:name],
                         price: params[:price],
                         image_url: params[:image_url],
-                        description: params[:description]
+                        description: params[:description],
+                        stock: params[:stock]
                       )
     flash[:success] = "Listing Successfully Created"
     redirect_to "/weapons/#{ weapon.id }"
@@ -36,7 +38,8 @@ class WeaponsController < ApplicationController
                                     name: params[:name],
                                     price: params[:price],
                                     image_url: params[:image_url],
-                                    description: params[:description]
+                                    description: params[:description],
+                                    stock: params[:stock].to_bool
                                     )
     flash[:success] = "Listing Successfully Updated"
     redirect_to "/weapons/#{ weapon.id }"

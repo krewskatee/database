@@ -12,8 +12,4 @@ class Weapon < ApplicationRecord
     price + tax
   end
 
-  def sale_message_styling
-    "red" if sale_message == "Discount Item"
-  end
-
 end

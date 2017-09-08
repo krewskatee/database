@@ -13,6 +13,9 @@
     <div>
       <label for="Description">Description:</label> <textarea id="desc" type="text" class="form-control" name="description" value="<%= @weapon.description %>" id="Description"></textarea>
     </div>
+    <div>
+      <label for="Stock">Stock</label> <input type="text" class="form-control" name="stock" value="<%= @weapon.stock %>" id="Stock">
+    </div>
     <br />
     <button type="submit" class="btn btn-success">Update Weapon</button>
 <% end %>
