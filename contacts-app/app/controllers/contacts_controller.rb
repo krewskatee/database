@@ -15,11 +15,13 @@ class ContactsController < ApplicationController
   def update
   contact = Contact.find(params[:id])
   contact.update_attributes(
-                                  first_name: params[:first_name],
-                                  last_name: params[:last_name],
-                                  email: params[:email],
-                                  phone_number: params[:phone_number]
-                                  )
+                            first_name: params[:first_name],
+                            middle_name: params[:first_name],
+                            last_name: params[:last_name],
+                            email: params[:email],
+                            phone_number: params[:phone_number],
+                            bio: params[:bio]
+                          )
   redirect_to "/contacts/#{ contact.id }"
   end
 
@@ -27,9 +29,11 @@ class ContactsController < ApplicationController
   def create
     contact = Contact.create(
                             first_name: params[:first_name],
+                            middle_name: params[:first_name],
                             last_name: params[:last_name],
                             email: params[:email],
-                            phone_number: params[:phone_number]
+                            phone_number: params[:phone_number],
+                            bio: params[:bio]
                             )
     redirect_to("/")
   end

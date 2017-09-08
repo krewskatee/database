@@ -8,10 +8,16 @@
       <label for="Last Name">Last Name:</label> <input type="text" name="last_name" class="form-control" value="<%= @contact.last_name %>" id="Last Name">
     </div>
     <div>
+    <label for="Middle Name">Middle name:</label> <input type="text" name="middle_name" value="<%= @contact.middle_name %>" id="Middle Name">
+    </div>
+    <div>
       <label for="Email">Email:</label> <input type="text" class="form-control" name="email" value="<%= @contact.email %>" id="Email">
     </div>
     <div>
       <label for="Phone Number">Phone Number:</label> <input type="text" class="form-control" name="phone_number" value="<%= @contact.phone_number %>" id="Phone Number">
+    </div>
+    <div>
+      <label for="Bio">Bio:</label> <input type="text" name="bio" value="<%= @contact.bio %>" id="Bio">
     </div>
     <br />
     <button type="submit" class="btn btn-success">Update Contact</button>

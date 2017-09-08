@@ -7,7 +7,7 @@
     <div class="well">
       <img src="<%= weapon.image_url %>">
       <h2>Name:</h2> <h2><%= link_to weapon.name, "weapons/#{weapon.id}" %></h2>
-      <h3>Price:</h3> <%= weapon.price %>
+      <h3>Price:</h3> <%= number_to_currency(weapon.price) %>
       <h3>Description:</h3> <%= weapon.description %>
       <br /><br /></br />
     </div>

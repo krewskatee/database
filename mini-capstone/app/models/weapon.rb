@@ -1,7 +1,7 @@
 class Weapon < ApplicationRecord
 
-  def sale_message
-    price < 2 ? "Discount Item" : "Everyday Value"
+  def discounted?
+    price < 50
   end
 
   def tax
