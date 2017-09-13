@@ -35,13 +35,13 @@ class WeaponsController < ApplicationController
   end
 
   def create
-
     weapon = Weapon.create(
                         name: params[:name],
                         price: params[:price],
                         image_url: params[:image_url],
                         description: params[:description],
-                        stock: params[:stock]
+                        stock: params[:stock],
+                        supplier_id: params[:supplier_id]
                       )
     flash[:success] = "Listing Successfully Created"
     redirect_to "/weapons/#{ weapon.id }"
@@ -78,6 +78,10 @@ class WeaponsController < ApplicationController
   def random
     weapon_id = Weapon.all.sample.id
     redirect_to "/weapons/#{weapon_id}"
+  end
+
+  def new
+    @suppliers = Supplier.all
   end
 
 end

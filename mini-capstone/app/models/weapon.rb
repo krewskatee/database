@@ -1,5 +1,8 @@
 class Weapon < ApplicationRecord
 
+    has_many :images
+    belongs_to :supplier
+
   def discounted?
     price < 50
   end

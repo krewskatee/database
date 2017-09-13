@@ -18,6 +18,8 @@
   <h3 class="red-price">Out of Stock</h3>
 <% end %>
 
+<h6>Supplier: <%= @weapon.supplier.name %></h6>
+
 <br /><br />
 <%= link_to "Update Listing", "/weapons/#{ @weapon.id }/edit", class: "btn btn-primary" %>
 <%= link_to "Delete Listing", "/weapons/#{ @weapon.id }", method: :delete, class: "btn btn-danger" %>
