@@ -1,5 +1,7 @@
 <h2>Weapon Info</h2>
-<img src="<%= @weapon.image_url %>">
+<% @weapon.images.each do |image| %>
+  <img src= "<%= image.image_url %>" alt="">
+<% end %>
 <h2>Name:</h2> <%= @weapon.name %>
 <h3>Description:</h3> <%= @weapon.description %>
 <h2>Price:</h2> <h3 class="<%= "red-price" if @weapon.discounted? %>"><%= number_to_currency(@weapon.price) %></h3>

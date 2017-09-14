@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   patch '/weapons/:id' => 'weapons#update'
 
   delete '/weapons/:id' => 'weapons#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 end

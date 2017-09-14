@@ -15,4 +15,12 @@ class Weapon < ApplicationRecord
     price + tax
   end
 
+  def default_image
+    if images.count > 0
+      images.first.image_url
+    else
+      "http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png"
+    end
+  end
+
 end

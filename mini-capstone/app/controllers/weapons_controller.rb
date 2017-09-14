@@ -38,7 +38,6 @@ class WeaponsController < ApplicationController
     weapon = Weapon.create(
                         name: params[:name],
                         price: params[:price],
-                        image_url: params[:image_url],
                         description: params[:description],
                         stock: params[:stock],
                         supplier_id: params[:supplier_id]
@@ -60,7 +59,6 @@ class WeaponsController < ApplicationController
     weapon.update_attributes(
                                     name: params[:name],
                                     price: params[:price],
-                                    image_url: params[:image_url],
                                     description: params[:description],
                                     stock: params[:stock].to_bool
                                     )
