@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
+  post '/login/create' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  post '/orders' => 'orders#create'
+  get '/orders/show' => 'orders#show'
 end

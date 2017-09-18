@@ -25,15 +25,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/weapons/random"><%= current_user && current_user.name %></a></li>
+            <% if current_user %>
+              <li><a href="#"><%= current_user.name %></a></li>
+            <% end %>
             <li><a href="/?discount=discount">Discount Items<span class="sr-only">(current)</span></a></li>
             <li><a href="/weapons/random">Random Item</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="weapons/new">New Listing</a></li>
-                <li><a href="/login">Log In</a></li>
-                <li><a href="/logout">Log Out</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li>
                 <li role="separator" class="divider"></li>
@@ -48,7 +48,12 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/signup">Sign Up</a></li>
+            <% if current_user == nil %>
+              <li><a href="/signup">Sign Up</a></li>
+              <li><a href="/login">Log In</a></li>
+            <% else %>
+              <li><a href="/logout">Log Out</a></li>
+            <% end %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
               <ul class="dropdown-menu">

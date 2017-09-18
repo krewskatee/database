@@ -25,3 +25,13 @@
 <br /><br />
 <%= link_to "Update Listing", "/weapons/#{ @weapon.id }/edit", class: "btn btn-primary" %>
 <%= link_to "Delete Listing", "/weapons/#{ @weapon.id }", method: :delete, class: "btn btn-danger" %>
+<br />
+<%= form_tag "/orders", method: :post do %>
+  <input type="hidden" name="weapon_id" value="<%= @weapon.id %>">
+  <div>
+    Quantity:<input type="text" name="quantity" class="form-control">
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Buy Now!</button>
+  </div>
+<% end %>
