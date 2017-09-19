@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.last
+    @order_image_url = current_user.orders.last.weapon.images.first.image_url
+    @order_weapon_name = current_user.orders.last.weapon.name
   end
 
   def new
