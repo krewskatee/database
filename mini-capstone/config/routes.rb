@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   get '/login' => 'sessions#new'
-  post '/login/create' => 'sessions#create'
+  post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  post '/orders' => 'orders#create'
   get '/orders/show' => 'orders#show'
+  post '/orders' => 'orders#create'
+
 end

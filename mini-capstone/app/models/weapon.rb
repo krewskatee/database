@@ -9,7 +9,7 @@ class Weapon < ApplicationRecord
   end
 
   def tax
-    price * 0.09
+    price * 0.10
   end
 
   def total

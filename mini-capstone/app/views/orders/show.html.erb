@@ -1,4 +1,10 @@
-<h1>Order made</h1>
+<center><h1>Order made</h1></center>
 
 <center><h1>User: </h1><h3><%= @order.user_id %></h3></center>
 <center><h1>Quantity: </h1><h3><%= @order.quantity %></h3></center>
+<center><h1>Subtotal: </h1><h3><%= number_to_currency(@order.subtotal) %></h3></center>
+<center><h1>Tax: </h1><h3><%= number_to_currency(@order.tax) %></h3></center>
+<center><h1>Total: </h1><h3><%= number_to_currency(@order.total) %></h3></center>
+<center><h1>Email: </h1><h3><%= current_user.email %></h3></center>
+
+<center><img src="<%= current_user.orders.last.weapon.images.first.image_url %>"></center>
