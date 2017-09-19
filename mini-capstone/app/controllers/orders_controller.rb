@@ -11,14 +11,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-
+    product = Weapon.find(params[:weapon_id])
     order = Order.new(
                     user_id: current_user.id,
                     weapon_id: params[:weapon_id],
                     quantity: params[:quantity],
-                    subtotal: params[:subtotal].to_i * params[:quantity].to_i,
-                    tax: params[:tax].to_i * params[:quantity].to_i,
-                    total: params[:total].to_i * params[:quantity].to_i
+                    subtotal: product.subtotal_with_quantity(params[:quantity].to_i),
+                    tax: product.tax_with_quantity(params[:quantity].to_i),
+                    total: product.total_with_quantity(params[:quantity].to_i)
                     )
     if order.save
       flash[:success] = "Successfully created order."

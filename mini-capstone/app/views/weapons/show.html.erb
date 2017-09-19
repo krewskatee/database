@@ -28,9 +28,6 @@
 <br />
 <%= form_tag "/orders", method: :post do %>
   <input type="hidden" name="weapon_id" value="<%= @weapon.id %>">
-  <input type="hidden" name="subtotal" value="<%= @weapon.price %>">
-  <input type="hidden" name="tax" value="<%= @weapon.tax %>">
-  <input type="hidden" name="total" value="<%= @weapon.total %>">
   <div>
     Quantity:<input type="text" name="quantity" class="form-control">
   </div>

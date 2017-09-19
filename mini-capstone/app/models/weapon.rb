@@ -16,6 +16,20 @@ class Weapon < ApplicationRecord
     price + tax
   end
 
+  def subtotal_with_quantity(quantity)
+    price * quantity
+  end
+
+  def tax_with_quantity(quantity)
+    price * 0.10 * quantity
+  end
+
+  def total_with_quantity(quantity)
+    price + tax * quantity
+  end
+
+
+
   def default_image
     if images.count > 0
       images.first.image_url
