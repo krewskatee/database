@@ -16,13 +16,13 @@ class OrdersController < ApplicationController
                     user_id: current_user.id,
                     weapon_id: params[:weapon_id],
                     quantity: params[:quantity],
-                    subtotal: product.subtotal_with_quantity(params[:quantity].to_i),
-                    tax: product.tax_with_quantity(params[:quantity].to_i),
-                    total: product.total_with_quantity(params[:quantity].to_i)
                     )
+    order.subtotal = product.subtotal_with_quantity(order.quantity)
+    order.tax = product.tax_with_quantity(order.quantity)
+    order.total = product.total_with_quantity(order.quantity)
     if order.save
       flash[:success] = "Successfully created order."
-      redirect_to '/orders/show'
+      redirect_to "/orders/#{order.id}"
     end
   end
 

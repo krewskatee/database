@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
 
   patch '/weapons/:id' => 'weapons#update'
-
   delete '/weapons/:id' => 'weapons#destroy'
 
   get '/signup' => 'users#new'
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/orders/show' => 'orders#show'
+  get '/orders/:id' => 'orders#show'
   post '/orders' => 'orders#create'
 
 end
