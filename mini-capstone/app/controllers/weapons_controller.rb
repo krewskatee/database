@@ -6,7 +6,12 @@ class WeaponsController < ApplicationController
     sort_attribute = params[:sort]
     order_attribute = params[:order]
     search_attribute = params[:search]
+    category_attribute = params[:category]
     @random_item_num = Random.rand(1..Weapon.count)
+
+    if category_attribute
+      @weapons = Category.find_by(name: params[:category]).weapons
+    end
 
     if sort_attribute && order_attribute
       @weapons = @weapons.order(sort_attribute => order_attribute)

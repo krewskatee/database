@@ -20,6 +20,13 @@
   <h3 class="red-price">Out of Stock</h3>
 <% end %>
 
+<h1>Categories</h1>
+<% @weapon.categories.each do |category| %>
+  <%= category.name %>
+  <br />
+
+<% end %>
+
 <h6>Supplier: <%= @weapon.supplier.name %></h6>
 
 <br /><br />

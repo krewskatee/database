@@ -3,6 +3,8 @@ class Weapon < ApplicationRecord
     has_many :orders
     has_many :images
     belongs_to :supplier
+    has_many :category_weapons
+    has_many :categories, through: :category_weapons
 
   def discounted?
     price < 50

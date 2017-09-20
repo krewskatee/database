@@ -1,9 +1,18 @@
 <h2>Contact Info</h2>
-<h2>Name:</h2> <%= @contact.full_name %>
-<h3>Email:</h3> <%= @contact.email %>
-<h3>Phone Number:</h3> <%= @contact.add_japan_prefix %>
-<h3>Bio:</h3> <%= @contact.bio %>
-<h3>Updated at:</h3> <%= @contact.friendly_updated_at %>
-<br /><br />
-<%= link_to "Update Contact", "/contacts/#{ @contact.id }/edit", class: "btn btn-primary" %>
-<%= link_to "Delete Contact", "/contacts/#{ @contact.id }", method: :delete, class: "btn btn-danger" %>
+<% if current_user %>
+
+  <h2>Name:</h2> <%= @contact.full_name %>
+  <h3>Email:</h3> <%= @contact.email %>
+  <h3>Phone Number:</h3> <%= @contact.add_japan_prefix %>
+  <h3>Bio:</h3> <%= @contact.bio %>
+  <h3>Updated at:</h3> <%= @contact.friendly_updated_at %>
+  <h1>Categories</h1>
+  <% @contact.groups.each do |group| %>
+    <%= group.name %>
+  <br />
+<% end %>
+  <br /><br />
+  <%= link_to "Update Contact", "/contacts/#{ @contact.id }/edit", class: "btn btn-primary" %>
+  <%= link_to "Delete Contact", "/contacts/#{ @contact.id }", method: :delete, class: "btn btn-danger" %>
+
+<% end %>

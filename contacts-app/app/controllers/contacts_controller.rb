@@ -1,11 +1,25 @@
 class ContactsController < ApplicationController
 
   def show
-    @contact = Contact.find(params[:id])
+    if current_user
+      @contact = Contact.find(params[:id])
+    else
+      flash[:warning] = 'Please Log In'
+    end
   end
 
   def index
-    @contacts = Contact.all
+    if current_user
+      @contacts = current_user.contacts
+      category_attribute = params[:category]
+
+      if category_attribute
+        @contacts = Group.find_by(name: params[:category]).contacts
+      end
+
+    else
+      flash[:warning] = 'Please Log In'
+    end
   end
 
   def edit
@@ -33,7 +47,8 @@ class ContactsController < ApplicationController
                             last_name: params[:last_name],
                             email: params[:email],
                             phone_number: params[:phone_number],
-                            bio: params[:bio]
+                            bio: params[:bio],
+                            user_id: current_user.id
                             )
     redirect_to("/")
   end
