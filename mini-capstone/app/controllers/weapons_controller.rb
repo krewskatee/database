@@ -55,6 +55,7 @@ class WeaponsController < ApplicationController
   end
 
   def edit
+    redirect_to "/" unless current_user && current_user.admin
     @weapon = Weapon.find(params[:id])
   end
 
@@ -83,6 +84,7 @@ class WeaponsController < ApplicationController
   end
 
   def new
+    redirect_to "/" unless current_user && current_user.admin
     @suppliers = Supplier.all
   end
 

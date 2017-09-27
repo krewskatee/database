@@ -14,12 +14,6 @@
     <h3>Everyday Great Item</h3>
 <% end %>
 
-<% if @weapon.stock == true %>
-  <h3>In Stock</h3>
-<% else %>
-  <h3 class="red-price">Out of Stock</h3>
-<% end %>
-
 <h1>Categories</h1>
 <% @weapon.categories.each do |category| %>
   <%= category.name %>
@@ -28,10 +22,13 @@
 
 <h6>Supplier: <%= @weapon.supplier.name %></h6>
 
-<br /><br />
-<%= link_to "Update Listing", "/weapons/#{ @weapon.id }/edit", class: "btn btn-primary" %>
-<%= link_to "Delete Listing", "/weapons/#{ @weapon.id }", method: :delete, class: "btn btn-danger" %>
-<br />
+
+<% if current_user && current_user.admin %>
+  <br /><br />
+  <%= link_to "Update Listing", "/weapons/#{ @weapon.id }/edit", class: "btn btn-primary" %>
+  <%= link_to "Delete Listing", "/weapons/#{ @weapon.id }", method: :delete, class: "btn btn-danger" %>
+  <br />
+<% end %>
 <%= form_tag "/carted_weapons", method: :post do %>
   <input type="hidden" name="weapon_id" value="<%= @weapon.id %>">
   <div>
