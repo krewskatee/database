@@ -1,4 +1,5 @@
 class WeaponsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :random]
 
   def index
     @weapons = Weapon.all
@@ -55,7 +56,6 @@ class WeaponsController < ApplicationController
   end
 
   def edit
-    redirect_to "/" unless current_user && current_user.admin
     @weapon = Weapon.find(params[:id])
   end
 
@@ -65,7 +65,6 @@ class WeaponsController < ApplicationController
                                     name: params[:name],
                                     price: params[:price],
                                     description: params[:description],
-                                    stock: params[:stock].to_bool
                                     )
     flash[:success] = "Listing Successfully Updated"
     redirect_to "/weapons/#{ weapon.id }"
@@ -84,7 +83,6 @@ class WeaponsController < ApplicationController
   end
 
   def new
-    redirect_to "/" unless current_user && current_user.admin
     @suppliers = Supplier.all
   end
 
