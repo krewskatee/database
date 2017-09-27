@@ -24,7 +24,6 @@
 <% @weapon.categories.each do |category| %>
   <%= category.name %>
   <br />
-
 <% end %>
 
 <h6>Supplier: <%= @weapon.supplier.name %></h6>
@@ -33,13 +32,13 @@
 <%= link_to "Update Listing", "/weapons/#{ @weapon.id }/edit", class: "btn btn-primary" %>
 <%= link_to "Delete Listing", "/weapons/#{ @weapon.id }", method: :delete, class: "btn btn-danger" %>
 <br />
-<%= form_tag "/orders", method: :post do %>
+<%= form_tag "/carted_weapons", method: :post do %>
   <input type="hidden" name="weapon_id" value="<%= @weapon.id %>">
   <div>
     Quantity:<input type="text" name="quantity" class="form-control">
   </div>
   <br />
   <div>
-    <button type="submit" class="btn btn-primary">Buy Now!</button>
+    <button type="submit" class="btn btn-primary">Add To Cart</button>
   </div>
 <% end %>

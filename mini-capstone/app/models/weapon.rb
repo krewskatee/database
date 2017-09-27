@@ -1,10 +1,10 @@
 class Weapon < ApplicationRecord
-
     has_many :orders
     has_many :images
     belongs_to :supplier
     has_many :category_weapons
     has_many :categories, through: :category_weapons
+    has_many :carted_weapons
 
   def discounted?
     price < 50
@@ -27,7 +27,7 @@ class Weapon < ApplicationRecord
   end
 
   def total_with_quantity(quantity)
-    price + tax * quantity
+    total * quantity
   end
 
 

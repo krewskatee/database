@@ -10,7 +10,7 @@ class WeaponsController < ApplicationController
     @random_item_num = Random.rand(1..Weapon.count)
 
     if category_attribute
-      @weapons = Category.find_by(name: params[:category]).weapons
+      @weapons = Category.find_by(name: category_attribute).weapons
     end
 
     if sort_attribute && order_attribute
