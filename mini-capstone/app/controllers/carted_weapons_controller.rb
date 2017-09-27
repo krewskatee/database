@@ -1,7 +1,12 @@
 class CartedWeaponsController < ApplicationController
 
   def index
-    @carted_weapons = carted_weapons = current_user.current_cart
+    if current_user && current_user.current_cart.any?
+      @carted_weapons = current_user.current_cart
+    else
+      flash[:warning] = "You have no items in your cart. Why don't you find something cool first?"
+      redirect_to "/"
+    end
   end
 
   def create
@@ -16,6 +21,13 @@ class CartedWeaponsController < ApplicationController
       flash[:success] = "Successfully added to cart."
       redirect_to "/checkout"
     end
+  end
+
+  def destroy
+    carted_weapon = CartedWeapon.find(params[:id])
+    carted_weapon.update(status: "removed")
+    flash[:success] = "Weapon Removed"
+    redirect_to "/checkout"
   end
 
 end

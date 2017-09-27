@@ -25,5 +25,6 @@ Rails.application.routes.draw do
 
   get '/checkout' => 'carted_weapons#index'
   post '/carted_weapons' => 'carted_weapons#create'
+  delete '/carted_weapons/:id' => 'carted_weapons#destroy'
 
 end

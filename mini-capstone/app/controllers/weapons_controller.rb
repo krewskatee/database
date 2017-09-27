@@ -1,7 +1,6 @@
 class WeaponsController < ApplicationController
 
   def index
-
     @weapons = Weapon.all
     sort_attribute = params[:sort]
     order_attribute = params[:order]
