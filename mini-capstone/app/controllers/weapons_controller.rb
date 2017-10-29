@@ -39,16 +39,27 @@ class WeaponsController < ApplicationController
 
   end
 
+  def new
+    @suppliers = Supplier.all
+    @weapon = Weapon.new
+  end
+
   def create
-    weapon = Weapon.create(
+    @weapon = Weapon.new(
                         name: params[:name],
                         price: params[:price],
                         description: params[:description],
                         stock: params[:stock],
                         supplier_id: params[:supplier_id]
                       )
-    flash[:success] = "Listing Successfully Created"
-    redirect_to "/weapons/#{ weapon.id }"
+    if @weapon.save
+      flash[:success] = "Listing Successfully Created"
+      redirect_to "/weapons/#{ @weapon.id }"
+    else
+      @suppliers = Supplier.all
+
+      render "new.html.erb"
+    end
   end
 
   def show
@@ -82,8 +93,6 @@ class WeaponsController < ApplicationController
     redirect_to "/weapons/#{weapon_id}"
   end
 
-  def new
-    @suppliers = Supplier.all
-  end
+
 
 end

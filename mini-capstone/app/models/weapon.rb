@@ -6,6 +6,13 @@ class Weapon < ApplicationRecord
     has_many :categories, through: :category_weapons
     has_many :carted_weapons
 
+    validates :name, presence: true
+    validates :name, uniqueness: true
+    validates :price, presence: true
+    validates :price, numericality: true
+    validates :description, length: { in: 200..500 }
+
+
   def discounted?
     price < 50
   end
